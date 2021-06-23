@@ -10,7 +10,7 @@ use Doctrine\DBAL\Types\Type;
 
 class PhpDecimalIoType extends Type
 {
-    public const PHP_DECIMAL_IO_TYPE = 'php-decimal-io';
+    public const PHP_DECIMAL_IO_TYPE = 'php_decimal_io';
 
     public const MAX_PRECISION = 65;
 

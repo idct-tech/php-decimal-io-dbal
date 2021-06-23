@@ -20,15 +20,15 @@ In Symfony 4+, 5+ you can set this up in your `config/packages/doctrine.yaml`:
 doctrine:
     dbal:
         types:
-            php-decimal-io:  IDCT\Dbal\PhpDecimalIoType\PhpDecimalIoType
+            php_decimal_io:  IDCT\Dbal\PhpDecimalIoType\PhpDecimalIoType
 ```
 
 # Usage
-In your field declarations use type `php-decimal-io`, for example:
+In your field declarations use type `php_decimal_io`, for example:
 
 ```php
     /**
-     * @ORM\Column(type="php-decimal-io"))
+     * @ORM\Column(type="php_decimal_io"))
      */
     private Decimal $totalStake;
 ```
