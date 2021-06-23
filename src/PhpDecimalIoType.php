@@ -15,7 +15,7 @@ class PhpDecimalIoType extends Type
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
         $fixed = ($fieldDeclaration['precision'] ?? Decimal::DEFAULT_PRECISION) + 1;
-        $column = ['fixed' => $fixed, 'nullable' => $fieldDeclaration['nullable'] ?? false];
+        $column = ['length' => $fixed, 'nullable' => $fieldDeclaration['nullable'] ?? false];
 
         return $platform->getVarcharTypeDeclarationSQL($column);
     }
