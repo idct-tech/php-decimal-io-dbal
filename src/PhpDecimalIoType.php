@@ -12,11 +12,11 @@ class PhpDecimalIoType extends Type
 {
     public const PHP_DECIMAL_IO_TYPE = 'php-decimal-io';
 
+    public const MAX_PRECISION = 65;
+
     public function getSQLDeclaration(array $fieldDeclaration, AbstractPlatform $platform)
     {
-        $fixed = ($fieldDeclaration['precision'] ?? Decimal::DEFAULT_PRECISION) + 1;
-        $column = ['length' => $fixed, 'nullable' => $fieldDeclaration['nullable'] ?? false];
-
+        $column = ['length' => static::MAX_PRECISION + 1, 'nullable' => $fieldDeclaration['nullable'] ?? false];
         return $platform->getVarcharTypeDeclarationSQL($column);
     }
 
@@ -27,7 +27,7 @@ class PhpDecimalIoType extends Type
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform)
     {
-        return $value->toString();
+        return substr($value->toString(), 0, static::MAX_PRECISION);
     }
 
     public function getName()

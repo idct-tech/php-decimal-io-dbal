@@ -33,13 +33,4 @@ In your field declarations use type `php-decimal-io`, for example:
     private Decimal $totalStake;
 ```
 
-you may also set precision parameter:
-
-```php
-    /**
-     * @ORM\Column(type="php-decimal-io", precision=16)
-     */
-    private Decimal $totalStake;
-```
-
-Precision defaults to 28.
+Precision is set to 65 which means that maximum number of digits which can be stored is 65.
